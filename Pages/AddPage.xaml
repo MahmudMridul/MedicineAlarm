@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MedicineAlarm.Pages.AddPage"
+             Title="Add Medicine">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="FontSize">20</x:Double>
+
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="{StaticResource FontSize}"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Row="0"               
+                Grid.Column="0"
+                Text="Medicine Name: "
+                Margin="20, 10, 0, 0"
+                FontSize="{StaticResource FontSize}"
+            />
+            <Entry 
+                Grid.Row="0"
+                Grid.Column="1"
+                x:Name="medicineName"
+                Placeholder="Medicine name..."
+                FontSize="{StaticResource FontSize}"
+            />
+
+            <Picker 
+                Grid.Row="1"
+                Grid.Column="0"    
+                x:Name="medTakingTime"
+                Title="Before / After"
+                Margin="20, 0, 0, 0"
+                FontSize="{StaticResource FontSize}"
+            >
+                <Picker.ItemsSource FontSize="{StaticResource FontSize}">
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Before</x:String>
+                        <x:String>After</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker 
+                Grid.Row="1"
+                Grid.Column="1"    
+                x:Name="meal"
+                Title="Breakfast / Lunch / Dinner"
+                Margin="0, 0"
+                FontSize="{StaticResource FontSize}"
+            >
+                <Picker.ItemsSource FontSize="{StaticResource FontSize}">
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Breakfast</x:String>
+                        <x:String>Lunch</x:String>
+                        <x:String>Dinner</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label 
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="Alarm Time :"
+                Margin="20, 10, 0, 0"
+                FontSize="{StaticResource FontSize}"
+            />
+
+            <TimePicker 
+                Grid.Row="2"
+                Grid.Column="1"
+                x:Name="alarmTime"
+                Time="06:00:00"
+                FontSize="{StaticResource FontSize}"
+                Margin="0, 0"
+            />
+
+            <Button
+                Grid.Row="3"
+                Grid.Column="1"
+                Text="Add"
+                FontSize="{StaticResource FontSize}"
+                FontAttributes="Bold"
+                WidthRequest="80"
+                HeightRequest="50"
+                Margin="0, 30, 0, 0"
+                HorizontalOptions="Start"
+                Clicked="OnAdd"
+            />
+        </Grid>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MedicineAlarm.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:MedicineAlarm.Pages"
+>
+    <TabBar>
+        <!--<Tab 
+            Title="List"
+            Icon="list.png"
+        >
+            <ShellContent
+                Title="List"
+                ContentTemplate="{DataTemplate views:ListPage}"
+                Route="List" 
+            />
+        </Tab>-->
+
+        <Tab
+            Title="Add"
+            Icon="add.png"
+        >
+            <ShellContent
+                Title="Home"
+                ContentTemplate="{DataTemplate views:AddPage}"
+                Route="Add" 
+            />
+        </Tab>
+    </TabBar>
+</Shell>
