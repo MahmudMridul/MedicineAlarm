@@ -27,5 +27,16 @@
                 Route="Add" 
             />
         </Tab>
+
+        <Tab
+            Title="Add"
+            Icon="add.png"
+        >
+            <ShellContent
+                Title="Data"
+                ContentTemplate="{DataTemplate views:DataBindingPage}"
+                Route="Data" 
+            />
+        </Tab>
     </TabBar>
 </Shell>
