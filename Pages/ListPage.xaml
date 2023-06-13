@@ -3,17 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MedicineAlarm.Pages.ListPage"
              Title="Medicines"
-             x:Name="MedicinesPage">
+             x:Name="ListOfMedicines">
     <StackLayout>
-        <ListView 
-            ItemsSource="{Binding BindingContext.Medicines, Source={x:Reference MedicinesPage}}"
+        <ListView
+            BindingContext="{x:Reference ListOfMedicines}"
+            ItemsSource="{Binding Data}"
+            RowHeight="80"
         >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
@@ -29,22 +32,52 @@
                                 Grid.ColumnSpan="2"
                                 Text="{Binding MedicineName}"
                                 VerticalOptions="Center"
+                                Margin="10, 5, 0, 10"
                             />
 
-                            <Button
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                Text="{Binding MedTakingTime}"
+                                VerticalOptions="Center"
+                                Margin="10, 5, 0, 10"
+                            />
+
+                            <Label
                                 Grid.Row="0"
                                 Grid.Column="2"
-                                Text="Edit"
-                                HeightRequest="35"
-                                WidthRequest="50"
+                                Grid.ColumnSpan="2"
+                                Text="{Binding Meal}"
+                                VerticalOptions="Center"
+                                Margin="10, 5, 0, 10"
+                            />
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="3"
+                                Grid.ColumnSpan="2"
+                                Text="{Binding AlarmTime}"
+                                VerticalOptions="Center"
+                                Margin="10, 5, 0, 10"
                             />
 
                             <Button
-                                Grid.Row="0"
-                                Grid.Column="3"
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Text="Edit"
+                                HeightRequest="40"
+                                WidthRequest="80"
+                                Clicked="OnEdit"
+                            />
+
+                            <Button
+                                Grid.Row="1"
+                                Grid.Column="1"
                                 Text="Delete"
-                                HeightRequest="35"
-                                WidthRequest="50"
+                                HeightRequest="40"
+                                WidthRequest="80"
+                                Clicked="OnDelete"
                             />
                         </Grid>
                     </ViewCell>

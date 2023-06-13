@@ -6,16 +6,7 @@
     xmlns:views="clr-namespace:MedicineAlarm.Pages"
 >
     <TabBar>
-        <!--<Tab 
-            Title="List"
-            Icon="list.png"
-        >
-            <ShellContent
-                Title="List"
-                ContentTemplate="{DataTemplate views:ListPage}"
-                Route="List" 
-            />
-        </Tab>-->
+        
 
         <Tab
             Title="Add"
@@ -28,7 +19,18 @@
             />
         </Tab>
 
-        <Tab
+        <Tab 
+            Title="List"
+            Icon="list.png"
+        >
+            <ShellContent
+                Title="List"
+                ContentTemplate="{DataTemplate views:ListPage}"
+                Route="List" 
+            />
+        </Tab>
+
+        <!--<Tab
             Title="Add"
             Icon="add.png"
         >
@@ -37,6 +39,6 @@
                 ContentTemplate="{DataTemplate views:DataBindingPage}"
                 Route="Data" 
             />
-        </Tab>
+        </Tab>-->
     </TabBar>
 </Shell>

@@ -37,11 +37,12 @@ namespace MedicineAlarm.Data
             }
         }
 
-        public void LoadDataFromJson() 
+        public ObservableCollection<MedicineData> LoadDataFromJson() 
         {
             // Append the data to the existing JSON file
             string existingData = File.ReadAllText(jsonFilePath);
             MedicineList.Instance.Medicines = JsonSerializer.Deserialize<ObservableCollection<MedicineData>>(existingData);
+            return MedicineList.Instance.Medicines;
         }
 
         public void SaveDataToJson(ObservableCollection<MedicineData> Medicines)
